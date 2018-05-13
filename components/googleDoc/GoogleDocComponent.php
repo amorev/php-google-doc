@@ -11,8 +11,9 @@ namespace Zvinger\GoogleDoc\components\googleDoc;
 use Google_Client;
 use Google_Service_Sheets;
 use Google_Service_Sheets_BatchUpdateSpreadsheetRequest;
+use yii\base\Component;
 
-class GoogleDocComponent
+class GoogleDocComponent extends Component
 {
     /**
      * Returns an authorized API client.
@@ -36,7 +37,6 @@ class GoogleDocComponent
         $client = new Google_Client();
         $client->setApplicationName('Google Sheets API PHP Quickstart');
         $client->setScopes([Google_Service_Sheets::SPREADSHEETS]);
-        $this->clientSecretPath = \Yii::getAlias("@runtime/google/client_secret.json");
         $client->setAuthConfig($this->clientSecretPath);
         $client->setAccessType('offline');
         if (file_exists($this->credentialsPath)) {
