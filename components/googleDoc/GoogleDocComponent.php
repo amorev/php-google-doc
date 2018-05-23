@@ -11,8 +11,9 @@ namespace Zvinger\GoogleDoc\components\googleDoc;
 use Google_Client;
 use Google_Service_Sheets;
 use Google_Service_Sheets_BatchUpdateSpreadsheetRequest;
+use yii\base\Component;
 
-class GoogleDocComponent
+class GoogleDocComponent extends Component
 {
     /**
      * Returns an authorized API client.
