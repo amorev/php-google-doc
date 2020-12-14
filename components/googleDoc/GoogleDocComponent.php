@@ -87,14 +87,40 @@ class GoogleDocComponent extends Component
 
     private $activeTab;
 
-    public function updateRange($range, $rows)
-    {
+    public function updateRange(
+        $range,
+        $rows,
+        $options = [
+            'valueInputOption' => 'RAW',
+        ]
+    ) {
         $updates = new \Google_Service_Sheets_ValueRange();
         $updates->setValues($rows);
 
-        return $this->getGoogleSheetService()->spreadsheets_values->update($this->activeSheet, $this->activeTab . $range, $updates, [
+        return $this->getGoogleSheetService()->spreadsheets_values->update(
+            $this->activeSheet,
+            $this->activeTab.$range,
+            $updates,
+            $options
+        );
+    }
+
+    public function appendRange(
+        $range,
+        $rows,
+        $options = [
             'valueInputOption' => 'RAW',
-        ]);
+        ]
+    ) {
+        $updates = new \Google_Service_Sheets_ValueRange();
+        $updates->setValues($rows);
+
+        return $this->getGoogleSheetService()->spreadsheets_values->append(
+            $this->activeSheet,
+            $this->activeTab.$range,
+            $updates,
+            $options
+        );
     }
 
     public function updateRangeByCoordinates($startColumn, $startRow, $endColumn, $endRow, $rows)
