@@ -10,22 +10,14 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist zvinger/php-google-doc "*"
+php composer.phar require --prefer-dist amorev/php-google-doc "*"
 ```
 
 or add
 
 ```
-"zvinger/php-google-doc": "*"
+"amorev/php-google-doc": "*"
 ```
 
 to the require section of your `composer.json` file.
 
-
-Usage
------
-
-Once the extension is installed, simply use it in your code by  :
-
-```php
-<?= \Zvinger\GoogleDoc\AutoloadExample::widget(); ?>```# php-google-doc
