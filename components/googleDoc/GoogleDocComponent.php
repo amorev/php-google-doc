@@ -36,7 +36,7 @@ class GoogleDocComponent extends Component
     {
         $client = new Google_Client();
         $client->setApplicationName('Google Sheets API PHP Quickstart');
-        $client->setScopes([Google_Service_Sheets::SPREADSHEETS]);
+        $client->setScopes([Google_Service_Sheets::SPREADSHEETS, \Google_Service_Drive::DRIVE_FILE]);
         if (!file_exists($this->clientSecretPath)) {
             throw new \Exception("You should go to https://developers.google.com/sheets/api/quickstart/php and create credentials, and put it in file, mentioned in credentialsPath setting");
         }
